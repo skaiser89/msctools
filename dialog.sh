@@ -65,6 +65,7 @@ function dia_1(){
 
 function dia_2(){
 	navigation next $FUNCNAME
+
 	dia_profilmenu1=`\
 	dialog --backtitle "MSC-Tools | Lecture Recording" \
 					--help-button --help-label "Hilfe" \
@@ -122,7 +123,20 @@ function dia_1_1(){
 
 function dia_2_1(){
 	navigation next $FUNCNAME
+	
+	dia_profilmenu1=`\
+	dialog --backtitle "MSC-Tools | Lecture Recording" \
+					--help-button --help-label "Hilfe" \
+					--ok-label "Weiter" \
+					--cancel-label "Beenden" \
+					--menu "Aufnahme-Profile verwalten" $diacnf_height $diacnf_width 3\
+		         1 "Neues Profil" \
+		         2 "Profil laden" \
+		         3 "Profil löschen" 3>&1 1>&2 2>&3`
 
+
+
+<<C1
 	A_newprofil=()
 	#dia_profilmenu1=`\
 	dialog --backtitle "MSC-Tools | Lecture Recording" \
@@ -137,6 +151,7 @@ function dia_2_1(){
 						"Video-Encoder:"		4 1	"${A_newprofil[4]}" 5 10 20 0 \
 						"Layout-Vorlage:"		5 1 "${A_newprofil[5]}" 6 10 20 0 \
 						"Datei-Name:"      	6 1 "${A_newprofil[6]}" 7 10 20 0 #2>&1 1>&3`
+C1
 }
 #-----------------------------------------------------------
 
